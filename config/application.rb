@@ -1,4 +1,4 @@
-require_relative 'boot'
+require File.expand_path('boot', __dir__)
 
 require 'rails/all'
 
@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module RailsBootstrap
   class Application < Rails::Application
-
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
@@ -22,6 +21,10 @@ module RailsBootstrap
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+
+    # Auto-load API and its subdirectories (DOES NOT WORK, FIX THIS)
+    # config.paths.add "app/controllers/api", glob: '**/*.rb'
+    # config.autoload_paths += Dir["app/controllers/api/*"]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

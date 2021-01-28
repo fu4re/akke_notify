@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'visitors#index'
+  mount API::Base => '/'
+  mount GrapeSwaggerRails::Engine => '/swagger'
+
+  # root to: 'visitors#index'
 end
