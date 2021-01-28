@@ -1,0 +1,2 @@
+class SpentTime < Base
+end
